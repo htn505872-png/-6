@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: #0d110d;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* خلفية الجسيمات الثابتة خلف الموقع */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none; /* عشان ما يمنع الضغط على الأزرار */
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #152215 0%, #080c08 100%);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.main-logo {
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(0 0 25px rgba(92, 138, 92, 0.7));
+    margin-bottom: 25px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-logo:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #6da36d;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+    margin-bottom: 12px;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    color: #a5bda5;
+    margin-bottom: 35px;
+    letter-spacing: 3px;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #3d593d, #1e2e1e);
+    color: #ffffff;
+    border: 1px solid #6da36d;
+    padding: 14px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.btn-start:hover {
+    background: linear-gradient(135deg, #6da36d, #3d593d);
+    box-shadow: 0 0 25px rgba(109, 163, 109, 0.8);
+    transform: translateY(-4px);
+}
+
+/* حاوية المحتوى الرئيسي */
+.hidden-content {
+    display: none;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* كلاسات الأنيميشن أثناء السكرول (Scroll Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-card {
+    background: rgba(22, 30, 22, 0.85); /* شفافية خفيفة تدمج الجسيمات بالخلفية */
+    backdrop-filter: blur(5px);
+    border: 1px solid #233323;
+    border-radius: 14px;
+    padding: 35px;
+    margin-bottom: 45px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.section-card h2 {
+    color: #6da36d;
+    border-bottom: 2px solid #2d422d;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 1.9rem;
+}
+
+.description-text {
+    line-height: 1.9;
+    font-size: 1.15rem;
+    color: #cedbce;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.leader-card, .doc-card {
+    background-color: rgba(30, 43, 30, 0.9);
+    border: 1px solid #384f38;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.leader-card:hover, .doc-card:hover {
+    transform: translateY(-8px);
+    border-color: #6da36d;
+    box-shadow: 0 10px 20px rgba(109, 163, 109, 0.2);
+}
+
+.leader-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 12px 0;
+}
+
+.discord-tag {
+    display: inline-block;
+    background-color: #5865F2;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+}
+
+.discord-tag:hover {
+    background-color: #4752c4;
+}
+
+.ranks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.rank-item {
+    background-color: #172117;
+    padding: 14px 22px;
+    border-right: 5px solid #6da36d;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.rank-item:hover {
+    transform: scale(1.02);
+    background-color: #1d2b1d;
+}
+
+.tasks-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid #1f2b1f;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.tasks-list li i {
+    color: #6da36d;
+    margin-left: 18px;
+    font-size: 1.25rem;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #556655;
+    font-size: 0.95rem;
+    border-top: 1px solid #141c14;
+    position: relative;
+    z-index: 2;
+}
